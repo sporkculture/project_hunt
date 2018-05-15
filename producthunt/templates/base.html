@@ -11,6 +11,7 @@
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="{% static 'open-iconic/font/css/open-iconic-bootstrap.css' %}" rel="stylesheet">
 
   </head>
 
@@ -31,6 +32,10 @@
             <li class="nav-item">
               <!-- User authentication loging. Also javascriot for POST of form for logout -->
               {% if user.is_authenticated %}
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'create' %}"><span class="oi oi-plus"></span></a>
+            </li>
               <a class="nav-link" href="javascript:{document.getElementById('logout').submit()}">logout</a>
               <form id="logout" method="POST" action="{% url 'logout' %}">
                 {% csrf_token %}
